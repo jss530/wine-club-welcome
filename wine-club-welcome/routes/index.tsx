@@ -50,7 +50,7 @@ export default function Home() {
 
       <Hero header={header} text={text} url={url} button="false"/>
 
-      <div class="prose prose-grey grid grid-cols-1 mx-auto place-content-center">
+      <div class="prose prose-grey grid grid-cols-1 mx-auto mb-16 place-content-center">
         <div class="text-center">
           <p>
             Our cellar is pretty full - but we can fit one more in.
