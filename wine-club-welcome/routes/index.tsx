@@ -1,14 +1,10 @@
-import { Head } from "$fresh/runtime.ts";
-import { tw, cx, tx, css, style } from "https://esm.sh/@twind/core@1.1.3";
 import { Handlers } from "$fresh/server.ts";
-
-// todo: you may not need this
-import { useSignal } from "@preact/signals";
 import ColoredButton from "../islands/ColoredButton.tsx";
 import Hero from "../components/Hero.tsx";
+import { HeadElement } from "../components/HeadElement.tsx";
 
 export const handler: Handlers = {
-  async POST(req, ctx) {
+  async POST(req) {
     const form = await req.formData();
     const username = form.get("username")?.toString();
     const password = form.get("password")?.toString();
@@ -29,7 +25,7 @@ export const handler: Handlers = {
       const headers = new Headers();
       headers.set("location", "/thank-you");
       return new Response(null, {
-        status: 303, // See Other
+        status: 303,
         headers,
       });
     } else {
@@ -43,25 +39,19 @@ export const handler: Handlers = {
   },
 };
 
+const header = 'Join Us';
+const text = 'Become a member of one of the biggest wine cellars in the world.';
+const url = 'cellar.jpg';
 
 export default function Home() {
-  //todo: remove this and replace with another state or remove completely
-  const count = useSignal("password");
   return (
     <>
-      <Head>
-        <title>Wine Cellar Club</title>
-      </Head>
+      <HeadElement />
 
-      <Hero/>
+      <Hero header={header} text={text} url={url} button="false"/>
 
-      <div class="prose prose-grey grid grid-cols-1 mx-auto gap-4 place-content-center">
+      <div class="prose prose-grey grid grid-cols-1 mx-auto place-content-center">
         <div class="text-center">
-          {/* <img
-            src="/logo.svg"
-            class="w-32 h-32"
-            alt="a wine bottle"
-          /> */}
           <p>
             Our cellar is pretty full - but we can fit one more in.
           </p>
@@ -70,7 +60,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div class="p-4 mx-auto max-w-screen-md">
+        <div class="mx-auto max-w-screen-md">
           <div class="mt-8 grid grid-cols-1 gap-6 items-start">
             <form method="post" class="sign-up-form grid grid-cols-1 gap-6">
               <label class="block pb-0" for="username">
@@ -80,11 +70,12 @@ export default function Home() {
                   class="ml-4"
                   id="username" 
                   name="username" 
-                  value="" 
-                  required
                   maxLength="20"
-                  pattern="^[A-Za-z0-9]*$"
-                  />
+                  pattern="^[A-Za-z0-9]*$"   
+                  placeholder="Create a username"
+                  required
+                  value="" 
+                />
                 <p class="text-neutral-500 pt-0 text-xs"><em>Usernames should be max 20 characters and contain letters and numbers only.</em></p>
               </label>
 
@@ -94,17 +85,16 @@ export default function Home() {
                   type="password" 
                   class="ml-4"
                   id="password" 
+                  minLength="8"
                   name="password" 
-                  value="" 
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])((?=.*\W)|(?=.*_))^[^ ]+$"
+                  placeholder="Create a password"
                   required
-                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[-+_!@#$%^&*.,?]).{8,}"
+                  value=""
                 />
                 <p class="text-neutral-500 pt-0 text-xs"><em>Your password should be a minimum of 8 characters, and contain at least one uppercase letter, one lowercase letter, one number, and one special character.</em></p>
               </label>
-              {/* <input type="checkbox" onclick="toggleVisibility()">Show Password</input> */}
-
-
-              <ColoredButton type="submit">Join Us</ColoredButton>
+              <ColoredButton type="submit" onClick={() => (handler)}>Join Us</ColoredButton>
             </form>
           </div>
         </div>

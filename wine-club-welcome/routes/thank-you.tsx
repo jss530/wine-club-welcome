@@ -1,11 +1,12 @@
-import ColoredButton from "../islands/ColoredButton.tsx";
+import Hero from "../components/Hero.tsx";
+
+const header = 'Welcome.';
+const text = 'Thanks for signing up. Come on in.';
+const btnText = 'Enter Cellar';
+const url = 'welcome-wine.jpg'
 
 export default function ThankYouPage() {
   return (
-    <main>
-      <h1>You're in.</h1>
-      <p>Thanks for signing up. Come on in.</p>
-      <ColoredButton>Enter Cellar</ColoredButton>
-    </main>
+    <Hero header={header} text={text} button="true" btnText={btnText} url={url}/>
   );
 }
