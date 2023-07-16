@@ -50,7 +50,7 @@ export default function Home() {
 
       <Hero header={header} text={text} url={url} button="false"/>
 
-      <div class="prose prose-grey grid grid-cols-1 mx-auto mb-16 place-content-center">
+      <div class="prose prose-grey grid grid-cols-1 mx-auto mb-16 place-content-center w-5/6">
         <div class="text-center">
           <p>
             Our cellar is pretty full - but we can fit one more in.
@@ -60,7 +60,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div class="mx-auto max-w-screen-md">
+        <div class="mx-auto">
           <div class="mt-8 grid grid-cols-1 gap-6 items-start">
             <form method="post" class="sign-up-form grid grid-cols-1 gap-6">
               <label class="block pb-0" for="username">
@@ -76,7 +76,7 @@ export default function Home() {
                   required
                   value="" 
                 />
-                <p class="text-neutral-500 pt-0 text-xs"><em>Usernames should be max 20 characters and contain letters and numbers only.</em></p>
+                <p class="text-neutral-500 pt-0 text-xs"><em>Usernames should be max 20 characters, and contain letters and numbers only.</em></p>
               </label>
 
               <label class="block pb-0" for="password">
@@ -92,7 +92,7 @@ export default function Home() {
                   required
                   value=""
                 />
-                <p class="text-neutral-500 pt-0 text-xs"><em>Your password should be a minimum of 8 characters, and contain at least one uppercase letter, one lowercase letter, one number, and one special character.</em></p>
+                <p class="text-neutral-500 pt-0 text-xs"><em>Your password should be a minimum of 8 characters, and contain at least one uppercase letter, one lowercase letter, one number, and one special character. Please do not include spaces.</em></p>
               </label>
               <ColoredButton type="submit" onClick={() => (handler)}>Join Us</ColoredButton>
             </form>
