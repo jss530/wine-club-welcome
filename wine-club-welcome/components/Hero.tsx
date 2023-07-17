@@ -3,8 +3,8 @@ interface HeroProps {
   header: string;
   text: string;
   url: string;
-  button: boolean;
-  btnText: string;
+  button?: boolean;
+  btnText?: string;
 }
 
 const link = '/';

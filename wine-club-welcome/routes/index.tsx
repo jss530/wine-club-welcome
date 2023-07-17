@@ -48,7 +48,7 @@ export default function Home() {
     <>
       <HeadElement />
 
-      <Hero header={header} text={text} url={url} button="false"/>
+      <Hero header={header} text={text} url={url}/>
 
       <div class="prose prose-grey grid grid-cols-1 mx-auto mb-16 place-content-center w-5/6">
         <div class="text-center">
@@ -94,7 +94,7 @@ export default function Home() {
                 />
                 <p class="text-neutral-500 pt-0 text-xs"><em>Your password should be a minimum of 8 characters, and contain at least one uppercase letter, one lowercase letter, one number, and one special character. Please do not include spaces.</em></p>
               </label>
-              <ColoredButton type="submit" onClick={() => (handler)}>Join Us</ColoredButton>
+              <ColoredButton type="submit">Join Us</ColoredButton>
             </form>
           </div>
         </div>
