@@ -1,15 +1,8 @@
 # Wine Club Welcome Page
 
-A sample wine club signup page using Fresh and Deno Deploy.
+A sample wine club signup page using Deno's Fresh, Typescript, Tailwind and Deno Deploy.
 
-Users are instructed to create a username and password to sign up for the club.
-Client-side form validation has been added using HTML's built-in form validation.
-With this in mind, users will not be able to click on the 'Join Us' button until all fields are correctly filled.
-However, a '404 error' page has been created to handle any API response errors that may arise. It can be found by navigating to  https://wine-club-welcome.deno.dev/oops.
-An item from the Extra Challenge section has also been added: namely, responsiveness. The form should display correctly regardless of screen size. 
-
-Note that the success/error pages (https://wine-club-welcome.deno.dev/thank-you and https://wine-club-welcome.deno.dev/oops, respectively) contain navigation buttons that link back to the index.
-If this were a real signup page, the success page would then link to the main Wine Cellar member homepage. 
+The purpose of this sample site is to show how lightweight and performant form pages can be by utilizing a combination of built-in HTML input validations and mostly-inline styling (by way of TailwindCSS).
 
 ### Usage
 
